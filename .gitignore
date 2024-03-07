@@ -1,0 +1,4 @@
+.idea
+target/generated-sources
+target/test-classes
+target/maven-status

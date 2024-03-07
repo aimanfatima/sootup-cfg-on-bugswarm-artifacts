@@ -1,0 +1,26 @@
+digraph "output/dotfiles/max.dot" {
+    label="max";
+    "r0 := @this: SimpleCalculator" [label="r0 := @this: SimpleCalculator...",];
+    "i0 := @parameter0: int" [label="i0 := @parameter0: int...",];
+    "i1 := @parameter1: int" [label="i1 := @parameter1: int...",];
+    "i2 := @parameter2: int" [label="i2 := @parameter2: int...",];
+    "if i0 <= i1 goto (branch)" [label="if i0 <= i1 goto (branch)...",];
+    "if i0 <= i2 goto (branch)" [label="if i0 <= i2 goto (branch)...",];
+    "return i0" [label="return i0...",];
+    "if i1 <= i2 goto return i2" [label="if i1 <= i2 goto return i2...",];
+    "if i1 <= i0 goto return i2" [label="if i1 <= i0 goto return i2...",];
+    "return i1" [label="return i1...",];
+    "return i2" [label="return i2...",];
+    "r0 := @this: SimpleCalculator"->"i0 := @parameter0: int";
+    "i0 := @parameter0: int"->"i1 := @parameter1: int";
+    "i1 := @parameter1: int"->"i2 := @parameter2: int";
+    "i2 := @parameter2: int"->"if i0 <= i1 goto (branch)";
+    "if i0 <= i1 goto (branch)"->"if i0 <= i2 goto (branch)";
+    "if i0 <= i1 goto (branch)"->"if i1 <= i2 goto return i2";
+    "if i0 <= i2 goto (branch)"->"return i0";
+    "if i0 <= i2 goto (branch)"->"if i1 <= i2 goto return i2";
+    "if i1 <= i2 goto return i2"->"if i1 <= i0 goto return i2";
+    "if i1 <= i2 goto return i2"->"return i2";
+    "if i1 <= i0 goto return i2"->"return i1";
+    "if i1 <= i0 goto return i2"->"return i2";
+}
